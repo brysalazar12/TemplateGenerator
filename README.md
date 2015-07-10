@@ -6,12 +6,12 @@ Sample Template
 html.tpl
 
 Create basic html template
-@start
+###@start
 f:footer
 maincon:main_container
 col1:left_column
 col2:right_column
-@end
+###@end
 
 ```html
 <html>
