@@ -3,10 +3,8 @@ Generate template file
 
 Sample Template
 
-###html.tpl
-
+**html.tpl**  
 Create basic html template
-
 ```
 @start  
 f:footer  
