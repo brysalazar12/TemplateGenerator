@@ -12,9 +12,13 @@ package templategenerator;
 import com.google.gson.Gson;
 import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class TemplateGenerator {
 	private String templateJson;
@@ -24,6 +28,10 @@ public class TemplateGenerator {
 	protected Map params;
 	protected Map templateParams;
 	protected String FileName;
+
+	// annotation
+	protected String aPath;
+	protected String aExtension;
 
 	/**
 	 * @param args the command line arguments
@@ -74,7 +82,31 @@ public class TemplateGenerator {
 	}
 
 	public void readTemplateParameter(File file) {
-		
+		try {
+			BufferedReader reader = new BufferedReader(new FileReader(file));
+			String line = null;
+			boolean isInsideStart = false;
+			String templateParams[];
+			
+			while((line = reader.readLine()) != null) {
+
+				if(isInsideStart) {
+					templateParams = line.split(",");
+				}
+				
+				// check @start and @end
+				if(line.startsWith("@start")) {
+					isInsideStart = true;
+				} else if(line.startsWith("@end")) {
+					isInsideStart = false;
+				}
+			}
+			
+		} catch (FileNotFoundException ex) {
+			Logger.getLogger(TemplateGenerator.class.getName()).log(Level.SEVERE, null, ex);
+		} catch (IOException ex) {
+			Logger.getLogger(TemplateGenerator.class.getName()).log(Level.SEVERE, null, ex);
+		}
 	}
 
 	protected void error(String error) {
@@ -158,6 +190,4 @@ public class TemplateGenerator {
 	}
 
 }
-// TemplateGenerator.jar templateName param1 param2 param3
-
 //TemplateGenerator.jar fileName -t MyModel -cls=User -id=user_id -pup=[username,password,age,location]
