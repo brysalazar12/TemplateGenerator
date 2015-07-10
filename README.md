@@ -3,13 +3,14 @@ Generate template file
 
 Sample Template
 
-html.tpl
+###html.tpl
 
 Create basic html template
+
 **@start**
-f:footer
-maincon:main_container
-col1:left_column
+f:footer  
+maincon:main_container  
+col1:left_column  
 col2:right_column
 **@end**
 
