@@ -4,8 +4,8 @@ Generate template file
 Sample Template
 
 **html.tpl**  
-Create basic html template
 ```
+Create basic html template  
 @start  
 f:footer  
 maincon:main_container  
