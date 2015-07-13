@@ -17,11 +17,11 @@ class {fileName}Controller extends Controller {
 	/**
 	* Primary key
 	*/
-	public ${id}
+	public ${id};
 
-	public ${publicProperties}
+	public ${publicProperties};
 
-	private ${privateProperties}
+	private ${privateProperties};
 
 	public function rules()
 	{
