@@ -98,6 +98,9 @@ class {fileName}Controller extends Controller {
 
 **run:** java -jar path/to/TemplateGenerator.jar User -t=controller -id=user_id -pup=[firstName,lastName,age,location]  
 **output:** /path/where/file/will/generate/UserController.php  
+**NOTE** if we did not use the argument in template it will still write in the file. Like this example  
+-prp is not use so the output is private ${privateProperties}.  
+You can use **[]** to create multiple copy like in -pup it creates multiple public properties
 
 ```php
 <?php
