@@ -1,2 +1,2 @@
-java -jar "dist\TemplateGenerator.jar" -t=MyModels
+java -jar "dist\TemplateGenerator.jar"
 pause
