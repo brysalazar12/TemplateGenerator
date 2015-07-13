@@ -176,7 +176,7 @@ public class TemplateGenerator {
 						if(matcher.find()) {
 							String match = matcher.group();
 							String key = match.replace("{", "").replace("}", "");
-							if(this.templateParams.get(key) != null) {
+							if(this.templateParams.get(key) != null && this.params.containsKey(this.templateParams.get(key))) {
 								String replacement = this.params.get(this.templateParams.get(key)).toString();
 								if(arrayPattern.matcher(replacement).matches()) {
 									String temp = line;
