@@ -83,7 +83,6 @@ class {fileName}Controller extends Controller {
 	/**
 	 * Primary key
 	 */
-
 	public ${id};
 	
 	public ${publicProperties};
@@ -109,7 +108,6 @@ class UserController extends Controller {
 	/**
 	 * Primary key
 	 */
-
 	public $user;
 	
 	public $firstName;
