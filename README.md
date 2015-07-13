@@ -41,8 +41,8 @@ Create basic html template. This is documentation of this template
 ```
 
 **run:** java -jar path/to/TemplateGenerator.jar home -t=html -f=myfooter -maincon=main -col1=left -col2=right  
-**output:** /path/where/file/will/generate/home_template.html
-
+**output:** /path/where/file/will/generate/home_template.html  
+Content of generated home_template.html
 ```html
 <html>
   <head>
