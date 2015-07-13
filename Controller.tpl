@@ -14,7 +14,7 @@ prp:privateProperties|doc:List of private properties.
 
 <?php
 
-class {clsName} extends Model {
+class {fileName}Controller extends Controller {
 
 	/**
 	* Primary key
