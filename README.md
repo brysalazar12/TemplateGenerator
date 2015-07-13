@@ -1,7 +1,7 @@
 # TemplateGenerator
 Generate template file
 
-Sample Template
+##Sample Template
 
 **html.tpl**
 ```
@@ -61,4 +61,63 @@ Content of generated **home_template.html**
     </div>
   </body>
 </html>
+```
+
+##Sample Template
+**controller.tpl**
+```
+This template is use to create controller  
+@start  
+-id:id|doc:Primary key. Ex. -id=user_id  
+-pup:publicProperties|doc:List of public properties. Ex. -pup=[firstName,lastName,age,location]  
+-prp:privateProperties|doc:List of private properties  
+
+@path  
+@fileType:php  
+@filePrefix:  
+@fileSuffix:Controller  
+@end  
+<?php
+
+class {fileName}Controller extends Controller {
+	/**
+	 * Primary key
+	 */
+
+	public ${id};
+	
+	public ${publicProperties};
+
+	private ${privateProperties};
+
+	public function __construct() {
+
+	}
+}
+```
+
+**run:** java -jar path/to/TemplateGenerator.jar User -t=controller -id=user_id -pup=[firstName,lastName,age,location]  
+**output:** /path/where/file/will/generate/UserController.php  
+
+```php
+<?php
+
+class UserController extends Controller {
+	/**
+	 * Primary key
+	 */
+
+	public $user;
+	
+	public $firstName;
+	public $lastName;
+	public $age;
+	public $location;
+
+	private ${privateProperties};
+
+	public function __construct() {
+
+	}
+}
 ```
