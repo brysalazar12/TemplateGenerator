@@ -166,6 +166,7 @@ public class TemplateGenerator {
 
 			try (BufferedWriter writer = new BufferedWriter(new FileWriter(newFile))) {
 				Pattern pattern = Pattern.compile("\\{\\w+\\}");
+				Pattern arrayPattern = Pattern.compile("\\[.+\\]");
 				Matcher matcher;
 				
 				while((line = reader.readLine()) != null) {
@@ -176,7 +177,18 @@ public class TemplateGenerator {
 							String match = matcher.group();
 							String key = match.replace("{", "").replace("}", "");
 							if(this.templateParams.get(key) != null) {
-								line = line.replace(match, this.params.get(this.templateParams.get(key)).toString());
+								String replacement = this.params.get(this.templateParams.get(key)).toString();
+								if(arrayPattern.matcher(replacement).matches()) {
+									String temp = line;
+									line = "";
+									replacement = replacement.replace("[", "").replace("]", "");
+									String[] val = replacement.split(",");
+									for (String val1 : val) {
+										line += temp.replace(match, val1) + "\n";
+									}
+								} else {
+									line = line.replace(match, replacement);
+								}
 							}
 						}
 						writer.write(line + "\n");
