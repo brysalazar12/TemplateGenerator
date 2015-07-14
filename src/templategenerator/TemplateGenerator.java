@@ -30,7 +30,7 @@ public class TemplateGenerator {
 	private final String helpArgs = "-help";
 	private final String currentDir;
 	private final String fileType = "tpl"; // file type of template
-	protected Map params; // param in cli
+	protected Map<String,String> params; // param in cli
 	protected Map<String,String> templateParams; // param in template
 	protected Map<String,String> templateParamsDoc;
 
@@ -55,9 +55,9 @@ public class TemplateGenerator {
 
 	public TemplateGenerator() {
 		this.currentDir = System.getProperty("user.dir") + File.separatorChar;
-		this.templateArgs = new ArrayList<>();
-		this.templateParams = new HashMap<>();
-		this.templateParamsDoc = new HashMap<>();
+		this.templateArgs = new ArrayList<String>();
+		this.templateParams = new HashMap<String,String>();
+		this.templateParamsDoc = new HashMap<String,String>();
 	}
 	
 	public void generate(String[] args) {
@@ -216,7 +216,7 @@ public class TemplateGenerator {
 	 * @param args 
 	 */
 	protected void readAllParameters(String[] args) {
-		this.params = new HashMap();
+		this.params = new HashMap<String,String>();
 		String[] param = null;
 		for (String arg : args) {
 			if(arg.contains("=")) {
